@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette */
+    --bg-dark: #090a0f;
+    --bg-card: rgba(18, 20, 29, 0.65);
+    --border-card: rgba(255, 255, 255, 0.08);
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    
+    /* Vibrant Accent Gradients */
+    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    
+    /* Input Fields */
+    --input-bg: rgba(255, 255, 255, 0.03);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-focus-border: #a855f7;
+    --input-focus-shadow: rgba(168, 85, 247, 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 100%);
+    background-attachment: fixed;
+}
+
+body {
+    width: 90vw;
+    max-width: 360px; /* Reduced from 440px */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-card);
+    border-radius: 20px; /* Slightly reduced */
+    padding: 30px 25px; /* Reduced from 40px 35px */
+    box-shadow: 
+        0 10px 30px -10px rgba(0, 0, 0, 0.5),
+        0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    transform: translateY(0);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-gradient);
+}
+
+body:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 20px 40px -15px rgba(0, 0, 0, 0.6),
+        0 0 30px -5px rgba(99, 102, 241, 0.2);
+}
+
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px; /* Reduced from 28px */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px; /* Reduced from 30px */
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 11px; /* Reduced from 13px */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px; /* Reduced from 8px */
+    margin-top: 12px; /* Reduced from 16px */
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    display: block;
+}
+
+label:first-of-type {
+    margin-top: 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 14px; /* Reduced from 14px 18px */
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px; /* Slightly reduced */
+    font-size: 14px; /* Slightly reduced */
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+input[type="text"]:focus {
+    border-color: var(--input-focus-border);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 3px var(--input-focus-shadow);
+}
+
+/* Styled both Submit inputs and Submit buttons */
+input[type="submit"], button[type="submit"] {
+    width: 100%;
+    padding: 12px; /* Reduced from 16px */
+    margin-top: 20px; /* Reduced from 28px */
+    border: none;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px; /* Slightly reduced */
+    font-weight: 600;
+    color: white;
+    background: var(--accent-gradient);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    transition: var(--transition-smooth);
+}
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+    opacity: 0.95;
+    box-shadow: 
+        0 6px 15px rgba(99, 102, 241, 0.4),
+        0 0 12px rgba(168, 85, 247, 0.3);
+    transform: scale(1.02);
+}
+
+input[type="submit"]:active, button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Result Screen Styles */
+p {
+    font-size: 14px; /* Slightly reduced */
+    line-height: 1.5;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 10px 14px; /* Reduced from 14px 18px */
+    margin-bottom: 12px; /* Reduced from 16px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p strong {
+    font-size: 11px; /* Reduced from 13px */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-secondary);
+}
+
+a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 12px; /* Reduced from 15px */
+    margin-top: 10px; /* Reduced from 15px */
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px; /* Slightly reduced */
+    font-weight: 600;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+a:active {
+    transform: translateY(0);
+}
